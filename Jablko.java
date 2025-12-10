@@ -3,8 +3,6 @@ import fri.shapesge.Kruh;
 public class Jablko {
      private Kruh jablko;
     private Kruh tien;
-    private int polickoX;
-    private int polickoY;
     
        public Jablko() {
         this.jablko = new Kruh();

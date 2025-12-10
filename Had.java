@@ -28,7 +28,7 @@ public class Had {
 
     public void zobrazHada() {
         this.hlava.zobraz();
-        this.hlava.zmenFarbu("blue");
+        this.hlava.zmenFarbu("green");
     }
 
     public void pohniSaX(int x) {
