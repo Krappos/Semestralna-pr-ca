@@ -1,0 +1,36 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\BlueJ FRI Edition\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+11
+-classpath
+C:\Program Files\BlueJ FRI Edition\lib\bluejcore.jar;C:\Program Files\BlueJ FRI Edition\lib\junit-4.11.jar;C:\Program Files\BlueJ FRI Edition\lib\hamcrest-core-1.3.jar;C:\Program Files\BlueJ FRI Edition\lib\lang-stride.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.base.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.controls.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.fxml.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.graphics.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.media.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.properties.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.swing.jar;C:\Program Files\BlueJ FRI Edition\lib\javafx\lib\javafx.web.jar;C:\Users\patri\Desktop\Shapesge\shapesGE-SK-2.1.0.jar;C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík
+-d
+C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\Play.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\Play.java...
+Constructing Javadoc information...
+Standard Doclet version 11.0.2
+Building tree for all the packages and classes...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\Play.html...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\package-summary.html...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\allclasses.html...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\allclasses.html...
+Generating C:\Users\patri\Desktop\Závareèný projekt -snake\shapesGe -snake\hadík\doc\index.html...
