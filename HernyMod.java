@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
-
 public enum HernyMod {
+    Klasik,
+    Bezhranicny;
+
+    HernyMod() {
+
+    }
 }

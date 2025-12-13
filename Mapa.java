@@ -31,9 +31,9 @@ public class Mapa {
 
                 Stvorec s = new Stvorec(poziciaX, poziciaY); 
                 if ((i + z) % 2 == 0) {
-                    s.zmenFarbu("#aad751"); 
+                    s.zmenFarbu("lightGreen");
                 } else {
-                    s.zmenFarbu("#a2d149"); 
+                    s.zmenFarbu("darkGreen");
                 }
                 this.blok.add(s);
 
@@ -56,24 +56,6 @@ public class Mapa {
         for(Stvorec s:blok){
             s.skry(); 
         }
-    }
-
-    public int getVelkostMapyXBlok() {
-        return dlzkaX;
-    }
-
-    public int getVelkostMapyYBlok() {
-        return dlzkaY;
-    }
-
-    public int getVelkostMapyXPx() {
-
-        return dlzkaX*30;   
-    }
-
-    public int getVelkostMapyYPx() {
-
-        return dlzkaY*30;   
     }
 
 }

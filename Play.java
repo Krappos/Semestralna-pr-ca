@@ -2,17 +2,18 @@ import fri.shapesge.Manazer;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
+
 public class Play {
-    private Manazer manazer;
-    private Had had;
+    private final Manazer manazer;
+    private final Had had;
     private Mapa mapa;
     private Jablko jablko;
-    private Random r;
+    private final Random r;
 
     //Enumeracia
     private Smer aktualnySmer;
     private ZaverecneSpravy finalnaSprava;
-
+    private VypisSkore vypis;
     private int skore;
     private int hlavaX;
     private int hlavaY;
@@ -20,8 +21,8 @@ public class Play {
     private int jablkoX;
     private int jablkoY;
 
-    private int velkostMapyX;
-    private int velkostMapyY;
+    private final static int  VELKOST_MAPY_X = 9;
+    private final static int VELKOST_MAPY_Y = 9;
 
     private boolean ibaHlava;
     private boolean jeZakliknute;
@@ -31,6 +32,7 @@ public class Play {
         this.mapa = new Mapa(10, 10);
         this.mapa.zobrazMapu();
         this.r = new Random();
+        this.vypis = new VypisSkore();
 
         this.had = new Had();
         this.jablko = new Jablko();
@@ -40,8 +42,6 @@ public class Play {
         this.hlavaY = 0;
         this.jablkoX = 0;
         this.jablkoY = 0;
-        this.velkostMapyX = 9;
-        this.velkostMapyY = 9;
         this.ibaHlava = true;
 
         this.jeZakliknute = false;
@@ -51,10 +51,10 @@ public class Play {
 
         this.manazer = new Manazer();
         this.manazer.spravujObjekt(this);
+
+
     }
 
-    public void main() {
-    }
 
     public void tik() {
 
@@ -63,7 +63,7 @@ public class Play {
 
         this.jeZakliknute = false;
 
-        if (hlavaX > velkostMapyX || hlavaY > velkostMapyY || hlavaX < 0 || hlavaY < 0) {
+        if (hlavaX > VELKOST_MAPY_X || hlavaY > VELKOST_MAPY_Y || hlavaX < 0 || hlavaY < 0) {
             this.finalnaSprava=ZaverecneSpravy.NarazenieDoSteny;
             this.koniecHry();
         } else {
@@ -72,7 +72,7 @@ public class Play {
                 this.finalnaSprava=ZaverecneSpravy.NarazenieDoHada;
                 this.koniecHry();
             }
-            if(this.skore == 100){
+            if(this.skore == 99){
                 this.finalnaSprava=ZaverecneSpravy.ZjedolSiVsetko;
                 this.koniecHry();
             }
@@ -85,13 +85,12 @@ public class Play {
         }
     }
 
-
-
     private void zjedzJablko() {
         this.skore++;
         this.had.pridajKusok();
         this.spravaJablka();
         this.ibaHlava = false;
+        this.vypis.pridajSkore();
     }
 
     private void spravaJablka() {
@@ -99,10 +98,20 @@ public class Play {
             this.jablko.skry();
         }
 
+        boolean jeKoliziaSTelom;
+        boolean jeKoliziaSHlavou;
+
         do {
-            this.jablkoX = r.nextInt(velkostMapyX + 1);
-            this.jablkoY = r.nextInt(velkostMapyY + 1);
-        } while (this.jablkoX == this.hlavaX && this.jablkoY == this.hlavaY);
+            this.jablkoX = r.nextInt(VELKOST_MAPY_X + 1);
+            this.jablkoY = r.nextInt(VELKOST_MAPY_Y + 1);
+
+
+            jeKoliziaSHlavou = (this.jablkoX == this.hlavaX && this.jablkoY == this.hlavaY);
+
+            jeKoliziaSTelom = this.had.jeKolizia(this.jablkoX, this.jablkoY);
+
+            //generovanie jablka
+        } while (jeKoliziaSHlavou || jeKoliziaSTelom);
 
         this.jablko = new Jablko();
         this.jablko.zmenPoziciu(this.jablkoX, this.jablkoY);
@@ -115,6 +124,8 @@ public class Play {
         this.had.pohniSaY(this.aktualnySmer.getY());
     }
 
+
+
     public void posunHore() {
         if(!this.jeZakliknute) {
             if(this.ibaHlava) {
@@ -125,9 +136,7 @@ public class Play {
                 this.aktualnySmer = Smer.HORE;
             }
         }
-
         this.jeZakliknute = true;
-
     }
 
     public void posunDole() {
@@ -173,8 +182,6 @@ public class Play {
         }
         this.jeZakliknute = true;
 
-
-
     }
 
     private void koniecHry() {
@@ -184,24 +191,27 @@ public class Play {
     }
 }
 
-
-
 // --------------------------//
 
 // TO DO List
-//upravenie hlavy jablka
+//upravenie hlavy - jablka
 
-//optimalizacia klikania ak je stlačenie kym neprejde tick nespustí sa žiaden pohyb
 //až po tyku kvôli optimalizácií a nerozbitiu funkcií
-
 //pridanie herného modu vyber modu v metode herný mod cez select a nasledne podla toho sa nakonfikenguruje play
 
-//fixnutie pozície jablka aby sa nespavnovalo pod hadom
 
 //prianie optimalizácie pre hadíka
 
+//Pridanie edidtačných komentárov
+
+//pridanie posunov do jednej triedy
+
+
 // --------------------------//
+
 //hotove
+//fixnutie pozície jablka aby sa nespavnovalo pod hadom
+//optimalizacia klikania ak je stlačenie kym neprejde tick nespustí sa žiaden pohyb
 //pridanie kolizie hada
 //pridanie tela hada -> hotovo
 //upravenie koniec hry a vypis správy; -> hotovo
@@ -224,3 +234,5 @@ public class Play {
 // posun hada - z pixelov na pole
 //vykreslovanie mapy problem so zobrazením
 
+
+//pozor na kontainer

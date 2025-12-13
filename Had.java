@@ -18,7 +18,6 @@ public class Had {
         this.teloX = new ArrayList<Integer>();
         this.teloY = new ArrayList<Integer>();
 
-
         this.hlavaX = 0;
         this.hlavaY = 0;
 
